@@ -1,0 +1,27 @@
+def get_max_min_distacne():
+    max_distance = 0
+    min_distance = math.inf
+    for i in range(len(agents)):
+        a = agents[i]
+        for j in range(i+1, len(agents)):
+            b = agents[j]
+            distance = get_distance(a[0], b[0], a[1], b[1])
+            max_distance = max(max_distance, distance)
+            min_distance = min(min_distance, distance)
+    return max_distance, min_distance
+
+
+def get_max_distance():
+    max_distance = 0
+    for i in range(len(agents)):
+        a = agents[i]
+        for j in range(i+1, len(agents)):
+            # if i!= j:
+            # if i < j:
+                # print("i", i, "j", j)
+            b = agents[i]
+            distance = get_distance(a[0], b[0], a[1],b[1])
+            # print("distance between", a, b, distance)
+            max_distance = max(max_distance, distance)
+            # print("max_distance", max_distance)
+    return max_distance
