@@ -15,6 +15,8 @@ import imageio
 import os
 import matplotlib.animation as anim
 import tkinter as tk
+import requests
+import bs4
 import matplotlib
 matplotlib.use('TkAgg')
 
@@ -172,13 +174,24 @@ if __name__ == '__main__':
     neighbourhood = 50
 
     # Create a list to store agents and initialise agents
+    url = "http://agdturner.github.io/resources/abm9/data.html"
+    r = requests.get(url, verify=False)
+    content = r.text
+    soup = bs4.BeautifulSoup(content, 'html.parser')
+    td_ys = soup.find_all(attrs={"class" : "y"})
+    td_xs = soup.find_all(attrs={"class" : "x"})
+    print(td_ys)
+    print(td_xs)
     agents = []
     store_share = 0
     for i in range(n_agents):
         # Create an agent
-        agents.append(af.Agent(agents, i, environment, n_rows, n_cols))
-        #print(agents[i])
-    #print(agents)
+        y = int(td_ys[i].text) + 99
+        x = int(td_xs[i].text) + 99
+        agents.append(af.Agent(agents, i, environment, n_rows, n_cols, x, y))
+        print(agents[i].agents[i])
+    #print(agents[i])
+#print(agents)
 
     # Variables for constraining movement
     # The minimum x coordinate

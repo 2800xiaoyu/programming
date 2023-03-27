@@ -29,7 +29,7 @@ def read_data():
     f.close()
     return data, n_rows, n_cols
 
-def write_data(filename, environment):
+def write_data(filename,environment):
     f = open(filename, 'w', newline='')
     writer = csv.writer(f, delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
     for row in environment:
