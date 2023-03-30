@@ -25,6 +25,7 @@ def get_max_distance():
             max_distance = max(max_distance, distance)
             print("max_distance", max_distance)
 
+# Define a function for adding up all the values in environment
 def sum_environment():
     sum_env = 0
     for i in range(len(environment)):
@@ -32,6 +33,7 @@ def sum_environment():
             sum_env += environment[i][j]
     return sum_env
 
+# Define a function for adding up all the store values in all the agents
 def sum_agent_stores():
     sum_as = 0
     for i in range (len(agents)):
@@ -39,6 +41,7 @@ def sum_agent_stores():
     return sum_as
 
 if __name__ == '__main__':
+    # Call the 'read_data' function in io1.py
     environment, n_rows, n_cols = io.read_data()
 
     # Set the pseudo-random seed for reproducibility
@@ -102,11 +105,12 @@ except FileExistsError:
     
     # For storing images
     global ite
-    ite = 0
+    ite = 1
     images = []
     
 # Move agents and model loop
-for ite in range(n_iterations):
+# Main simulation loop
+for ite in range(1, n_iterations + 1):
     print("Iteration", ite)
     # Move agents
     print("Move")
@@ -134,6 +138,7 @@ for ite in range(n_iterations):
     print("sum_environment", sum_e)
     print("total resource", (sum_as + sum_e))
     
+    # Call write_data function in io1
     n_rows = io.write_data(environment)
 
     # Plot the agents

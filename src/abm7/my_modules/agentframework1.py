@@ -9,7 +9,8 @@ import geometry1
 
 class Agent():
     pass
-
+    
+    # Add a constructor method to Agent
     def __init__(self, agents, i, environment, n_rows, n_cols):
         """
         The constructor method.
@@ -39,11 +40,15 @@ class Agent():
         self.y = random.randint(tnc - 1, (2 * tnr) - 1)
         self.store = 0
         self.store_shares = 0
-    
+        # Setting 'store' of each agent to be a value in the range [0,99]
+        # self.store = random.randint(0, 99)
+        
+    # Return a string which includes the name of class
     def __str__(self):
         return self.__class__.__name__ + "(x=" + str(self.x) \
             + ", y=" + str(self.y) + ", i=" + str(self.i) + ")"
     
+    # Print string representations when printing agents
     def __repr__(self):
         return str(self)
     

@@ -32,6 +32,7 @@ def get_max_distance():
             # print("max_distance", max_distance)
     return max_distance
 
+# Define a function for adding up all the values in environment 
 def sum_environment():
     sum_env = 0
     for i in range(len(environment)):
@@ -39,6 +40,7 @@ def sum_environment():
             sum_env += environment[i][j]
     return sum_env
 
+# Define a function for adding up all the store values in all the agents
 def sum_agent_stores():
     sum_as = 0
     for i in range(len(agents)):
@@ -46,6 +48,7 @@ def sum_agent_stores():
     return sum_as
 
 # Move agents and model loop
+# Main simulation loop
 def update(frames):
     # Model loop
     global carry_on
@@ -82,28 +85,28 @@ def update(frames):
     # Stopping condition
     # Random
     if random.random() < 0.1:
-        # if sum_as / n_agents > 80:
-            carry_on = False
-            print("stopping condition")
+    # if sum_as / n_agents > 80: # Further assignment: stop when average agent store is greater than 80
+        carry_on = False
+        print("stopping condition")
     
     # Plot
+    # Call the plot function
     global ite
     plot()
     ite = ite + 1
 
+# Define a function called 'gen_function'
 def gen_function():
     global ite
     ite = 0
     global carry_on # Not actually needed as we're not assigning, but clearer
-    while (ite < n_iterations) & (carry_on):
+    while (ite <= n_iterations) & (carry_on):
         yield ite # Return control and waits next call
         ite = ite + 1
     global data_written
     if data_written == False:
-        # Write data
-        print("write data")
-        io.write_data('C:/Users/xiaoyu/programming/data/output/out7.txt', environment)
-        imageio.mimsave('C:/Users/xiaoyu/programming/data/output/out7.gif', images, fps=3)
+        # Set the Write data menu to normal
+        menu_0.entryconfig("Write data", state="normal")
         data_written = True
         
 # Plot the agents
@@ -138,6 +141,12 @@ def run(canvas):
     animation = anim.FuncAnimation(fig, update, init_func=plot, frames=gen_function, repeat=False)
     animation.new_frame_seq()
     canvas.draw()
+
+def output():
+    # Write data
+    print("write data")
+    io.write_data('C:/Users/xiaoyu/programming/data/output/out.txt', environment)
+    imageio.mimsave('C:/Users/xiaoyu/programming/data/output/out.gif', images, fps=3)
     
 def exiting():
     """
@@ -160,7 +169,7 @@ if __name__ == '__main__':
     images = []
     
     environment, n_rows, n_cols = io.read_data()
-    #n_cols = io.write_data(environment)
+    # n_cols = io.write_data(environment)
 
     # Set the pseudo-random seed for reproducibility
     random.seed(0)

@@ -80,7 +80,7 @@ class Agent():
             self.y = y_max
     
     def eat(self):
-        if self.environment[self.y][self.x] >= 100:
+        if self.environment[self.y][self.x] >= 10:
             self.environment[self.y][self.x] -= 10
             self.store += 10
     

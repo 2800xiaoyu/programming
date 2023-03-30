@@ -27,6 +27,7 @@ def get_max_distance():
             # print("max_distance", max_distance)
     return max_distance
 
+# Define a function for adding up all the values in environment 
 def sum_environment():
     sum_env = 0
     for i in range(len(environment)):
@@ -34,6 +35,7 @@ def sum_environment():
             sum_env += environment[i][j]
     return sum_env
 
+# Define a function for adding up all the store values in all the agents
 def sum_agent_stores():
     sum_as = 0
     for i in range(len(agents)):
@@ -41,10 +43,11 @@ def sum_agent_stores():
     return sum_as
 
 # Move agents and model loop
+# Main simulation loop
 def update(frames):
     # Model loop
     global carry_on
-    # for ite in range(n_iterations):
+    # for ite in range(1, n_iterations + 1):
     print("Iteration", frames)
     # Move agents
     print("Move and eat")
@@ -77,15 +80,17 @@ def update(frames):
     # Stopping condition
     # Random
     if random.random() < 0.1:
-        # if sum_as / n_agents > 80:
-            carry_on = False
-            print("stopping condition")
-    
+    # if sum_as / n_agents > 80: # Further assignment: stop when average agent store is greater than 80
+        carry_on = False
+        print("stopping condition")
+   
     # Plot
+    # Call the plot function
     global ite
     plot()
     ite = ite + 1
 
+# Define a function called 'gen_function'
 def gen_function():
     global ite
     ite = 0

@@ -10,6 +10,8 @@ import geometry1
 class Agent():
     pass
 
+    # Add a constructor method to Agent
+    # Add an attribute for storing the shares
     def __init__(self, agents, i, environment, n_rows, n_cols):
         """
         The constructor method.
@@ -37,13 +39,18 @@ class Agent():
         self.x = random.randint(tnc - 1, (2 * tnc) - 1)
         tnr = int(n_rows / 3)
         self.y = random.randint(tnc - 1, (2 * tnr) - 1)
-        self.store = 0
+        # self.store = 0
         self.store_shares = 0
+        # Further part 1
+        # Setting 'store' of each agent to be a value in the range [0,99]
+        self.store = random.randint(0, 99)
     
+    # Return a string which includes the name of class
     def __str__(self):
         return self.__class__.__name__ + "(x=" + str(self.x) \
             + ", y=" + str(self.y) + ", i=" + str(self.i) + ")"
     
+    # Print string representations when printing agents
     def __repr__(self):
         return str(self)
     
@@ -70,14 +77,22 @@ class Agent():
             self.y = y_max
     
     def eat(self):
-        if self.environment[self.y][self.x] >= 100:
+        if self.environment[self.y][self.x] >= 10:
             self.environment[self.y][self.x] -= 10
             self.store += 10
+        else:
+            self.store += self.environment[self.y][self.x]
+            self.environment[self.y][self.x] = 0
+        
+        # Further part 2
+        if self.store > 99: # If an agent 'store' goes above 99
+            self.store = self.store/2 # half of store
+            self.environment[self.y][self.x] = 0 # Added to 'environment'
     
     def share(self, neighbourhood):
         # Create a list of agents in neighbourhood
         neighbours = []
-        #print(self.agents[self.i])
+        # print(self.agents[self.i])
         for a in self.agents:
             distance = geometry1.get_distance(a.x, a.y, self.x, self.y)
             if distance < neighbourhood:

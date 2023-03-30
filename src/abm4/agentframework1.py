@@ -6,10 +6,11 @@ Created on Tue Mar 21 09:29:50 2023
 """
 import random
 
+# Class definition for an Agent class
 class Agent():
     pass
 
-class Agent:
+    # Add a constructor method to Agent
     def __init__(self, i):
         """
         The constructor method.
@@ -25,14 +26,16 @@ class Agent:
 
         """
         self.i = i
-        self.x = random.randint(0, 99)
-        self.y = random.randint(0, 99)
+        self.x = random.randint(0, 99) # Initialise 'x' to be random integers in the range [0, 99]
+        self.y = random.randint(0, 99) # Initialise 'y' to be random integers in the range [0, 99]
         pass
     
+    # Return a string which includes the name of class
     def __str__(self):
         return self.__class__.__name__ + "(x=" + str(self.x) \
             + ", y=" + str(self.y) + ", i=" + str(self.i) + ")"
     
+    # Print string representations when printing agents
     def __repr__(self):
         return str(self)
     

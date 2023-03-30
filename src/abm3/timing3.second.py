@@ -52,8 +52,30 @@ print("distance", distance)
 '''
 
 def get_distance(x0, y0, x1, y1):
+    """
+    Calculate the Euclidean distance between (x0, y0) and (x1, y1).
+
+    Parameters
+    ----------
+    x0 : Number
+        The x-coordinate of the first coordinate pair.
+    y0 : Number
+        The y-coordinate of the first coordinate pair.
+    x1 : Number
+        The x-coordinate of the second coordinate pair.
+    y1 : Number
+        The y-coordinate of the second coordinate pair.
+
+    Returns
+    -------
+    distance : Number
+        The Euclidean distance between (x0, y0) and (x1, y1).
+    """
+    # Calculate the difference in the x coordinates
     x = x1 - x0
+    # Calculate the difference in the y coordinates
     y = y1 - y0
+    # Return the Sum the squared differences square rooted
     return (x*x + y*y) ** 0.5
 '''
 max_distance = 0 # Initialise max_distance
@@ -64,7 +86,7 @@ for a in agents:
         max_distance = max(max_distance, distance)
         print("max_distance", max_distance)
 '''
-def get_max_distance():
+def get_max_distance(): # Define a function that returns maximum distance between all the agents
     max_distance = 0
     for i in range(len(agents)):
         a = agents[i]

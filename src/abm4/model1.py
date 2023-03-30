@@ -20,12 +20,14 @@ n_agents = 10
 n_iterations = 10
 
 # Create a list to store agents and initialise agents
+# a = af.Agent()
 agents = []
 for i in range(n_agents):
     # Create an agent
     agents.append(af.Agent(i))
     print(agents[i])
 print(agents)
+# print("type(a)", type((a)))
 
 # Variables for constraining movement
 # The minimum x coordinate
@@ -62,8 +64,30 @@ print("distance", distance)
 start = time.perf_counter()
 
 def get_distance(x0, y0, x1, y1):
+    """
+    Calculate the Euclidean distance between (x0, y0) and (x1, y1).
+
+    Parameters
+    ----------
+    x0 : Number
+        The x-coordinate of the first coordinate pair.
+    y0 : Number
+        The y-coordinate of the first coordinate pair.
+    x1 : Number
+        The x-coordinate of the second coordinate pair.
+    y1 : Number
+        The y-coordinate of the second coordinate pair.
+
+    Returns
+    -------
+    distance : Number
+        The Euclidean distance between (x0, y0) and (x1, y1).
+    """
+    # Calculate the difference in the x coordinates
     x = x1 - x0
+    # Calculate the difference in the y coordinates
     y = y1 - y0
+    # Return the Sum the squared differences square rooted
     return (x*x + y*y) ** 0.5
 
 max_distance = 0 # Initialise max_distance

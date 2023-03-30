@@ -12,6 +12,7 @@ import time
 import my_modules.agentframework1 as af
 import my_modules.io1 as io
 
+# Call the 'read_data' function in io1.py
 environment, n_rows, n_cols = io.read_data()
 
 # Set the pseudo-random seed for reproducibility
@@ -88,7 +89,8 @@ def get_max_distance():
             print("distance between", a, b, distance)
             max_distance = max(max_distance, distance)
             print("max_distance", max_distance)
-            
+
+# Define a function for adding up all the values in environment            
 def sum_environment():
     sum_env = 0
     for i in range(len(environment)):
@@ -96,6 +98,7 @@ def sum_environment():
             sum_env += environment[i][j]
     return sum_env
 
+# Define a function for adding up all the store values in all the agents
 def sum_agent_stores():
     sum_as = 0
     for i in range (len(agents)):
@@ -112,10 +115,17 @@ print("total resource", (sum_as + sum_e))
 end = time.perf_counter()
 print("Time taken to calculate maximum distance", end - start, "seconds")
 
+# Call write_data function in io1
 n_rows = io.write_data(environment)
 
-# Plot the agents
+# Plot the agents on the environment
 plt.imshow(environment)
+'''
+# Limit plot axes and flip y-axis back
+plt.ylim(y_min, y_max)
+plt.xlim(x_min, x_max)
+'''
+# Change plot limits for a closer look at the centre of environment
 plt.ylim(y_max / 3, y_max * 2 / 3)
 plt.xlim(x_max / 3, x_max * 2 / 3)
 for i in range(n_agents):

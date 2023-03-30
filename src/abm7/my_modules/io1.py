@@ -13,6 +13,7 @@ def read_data():
     f = open('C:/Users/xiaoyu/programming/data/input/in (2).txt', newline='')
     data = []
     
+    # For checking each row of 'data' contains the same number of values
     n_rows = 0
     n_cols = None
     
@@ -27,8 +28,9 @@ def read_data():
         data.append(row)
         n_rows += 1
     f.close()
-    return data, n_rows, n_cols
+    return data, n_rows, n_cols # Return the number of lines, number of values in each line and 'data'
 
+# Define a function to write out environment values to a file and call it in model1.py
 def write_data(filename, environment):
     f = open(filename, 'w', newline='')
     writer = csv.writer(f, delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
