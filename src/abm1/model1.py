@@ -11,19 +11,22 @@ import random
 random.seed(0)
 
 # Initialise variable x0
+# x0 = 0
 x0 = random.randint(0, 99)
 print("x0", x0)
 # Initialise variable y0
+# y0 = 0
 y0 = random.randint(0, 99)
 print("y0", y0)
 
+# Get value from function random
 # Change x0 and y0 randomly
 rn = random.random()
 print("rn", rn)
 if rn < 0.5:
     x0 = x0 + 5
 else:
-    x0 = x0 - 5
+    x0 = x0 - 5 # if the value 'rn' is less than 0.5, increase 'x0' by '5', otherwise decrease 'x0' by '5'
 print("x0", x0)
 
 rn = random.random()
