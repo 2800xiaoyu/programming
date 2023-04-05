@@ -90,6 +90,7 @@ def get_max_distance():
             max_distance = max(max_distance, distance)
             print("max_distance", max_distance)
 
+# Further part            
 # Define a function for adding up all the values in environment            
 def sum_environment():
     sum_env = 0
