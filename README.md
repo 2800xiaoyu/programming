@@ -22,3 +22,30 @@ Connect agentframework.py with model.py by using import.
 Compared with former part result, the new plot is the same as it.
 
 # abm5
+Import environment and make interactions in it.
+In agentframework.py:
+def move(): for changing [x,y] coordinates randomly
+def eat(): First, check values in environment where agents is located.
+           Second, if the value is larger than 10, it reduced by 10.
+                   Else, attribute of 'store' is added by 10.
+Overall, it is an interaction running between 'environment' where agents is located and 'store'.
+Due to the changing value is 10, the total resource of the interaction would not change.
+After interaction, plotting 'environment' is achieved by matplotlib in Python.
+
+# abm6
+In this part, another interaction is created in agentframework.py.
+In agentframework.py:
+def share(): First, calculate the distance between [x, y] in agents and [self.x, self.y] in 'share'.
+             Second, if the distance is smaller than neighbourhood, which is the index passed into share(),
+                     then the index of agent will be stored into 'neighbourhood' list.
+             Finally,the attribute 'self.store' is then divided into 'shares' and added to the 'store_shares' attribute of all the agents with indexes in 'neighbours'.
+In model.py, there is another mission of this part. Create an animation GIF by using 'imageio' and output the results into a file.
+
+# abm7
+The main practical for this part is animation.
+
+# abm8
+The main practical for this part is developing a simple Graphical User Interface (GUI).
+
+# abm9
+The main practical ofr this part is importing data from an HTML to create an animation.
