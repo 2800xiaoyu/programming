@@ -32,6 +32,11 @@ Overall, it is an interaction running between 'environment' where agents is loca
 Due to the changing value is 10, the total resource of the interaction would not change.
 After interaction, plotting 'environment' is achieved by matplotlib in Python.
 
+For sixth part (Code Review and Looking Forward),
+consider what happens when two or more agents are at the same location and there is less resource at the location for all the agents to have 10.
+Those agents processed sooner will get to eat more resource during interaction, while total resource is unchangeable.
+And, if agents are always processed in the same order, then these agents gaining more store.
+
 # abm6
 In this part, another interaction is created in agentframework.py.
 In agentframework.py:
