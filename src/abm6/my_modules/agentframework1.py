@@ -99,9 +99,9 @@ class Agent():
                 neighbours.append(a.i)
         # Calculate amount to share
         n_neighbours = len(neighbours)
-        #print("n_neighbours", n_neighbours)
+        # print("n_neighbours", n_neighbours)
         shares = self.store / n_neighbours
-        #print("shares", shares)
+        # print("shares", shares)
         # Add shares to store_shares
         for i in neighbours:
             self.agents[i].store_shares += shares
